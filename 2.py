@@ -3,7 +3,7 @@ from typing import TypedDict
 from dotenv import load_dotenv
 from langchain_google_genai import ChatGoogleGenerativeAI
 load_dotenv()
-
+from s1 import printy
 class State(TypedDict):
     question:str
     Outline:str
@@ -41,8 +41,7 @@ graph.add_edge("blog",END)
 workflow=graph.compile()
 png_data = workflow.get_graph().draw_mermaid_png()
 
-with open("graph.png", "wb") as f:
-    f.write(png_data)
+printy(workflow)
 
 inp={"question":"RDP Hijacking"}
 
