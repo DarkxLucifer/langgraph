@@ -94,7 +94,7 @@ workflow = graph.compile()
 printy(workflow)
 
 intial_state={
-    'review': "I’ve been trying to log in for over an hour now, and the app keeps freezing on the authentication screen. I even tried reinstalling it, but no luck. This kind of bug is unacceptable, especially when it affects basic functionality."
+    'review': "IT is just damn good product."
 }
 answer=workflow.invoke(intial_state)
 print(answer["response"])
