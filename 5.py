@@ -85,3 +85,4 @@ initial_state = {
 
 answer=workflow.invoke(initial_state)
 print(answer["result"])
+print("exit")
