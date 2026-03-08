@@ -99,4 +99,5 @@ intial_state = {
 }
 
 answer=workflow.invoke(intial_state)
-print(answer["avg_score"])
+print(round(answer["avg_score"], 2))
+
