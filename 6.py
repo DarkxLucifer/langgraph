@@ -4,7 +4,6 @@ from typing import TypedDict, Literal
 from dotenv import load_dotenv
 from pydantic import BaseModel, Field
 from s1 import printy
-from langchain_core.output_parsers import PydanticOutputParser
 load_dotenv()
 model=ChatGroq(
     model="llama-3.1-8b-instant"
@@ -16,9 +15,7 @@ class DiagnosisSchema(BaseModel):
     issue_type: Literal["UX", "Performance", "Bug", "Support", "Other"] = Field(description='The category of issue mentioned in the review')
     tone: Literal["angry", "frustrated", "disappointed", "calm"] = Field(description='The emotional tone expressed by the user')
     urgency: Literal["low", "medium", "high"] = Field(description='How urgent or critical the issue appears to be')
-diagnosis_parser=PydanticOutputParser(
-    pydantic_object=DiagnosisSchema,
-)
+
 structured_model =model.with_structured_output(SentimentSchema)
 structured_model2 = model.with_structured_output(DiagnosisSchema)
 
